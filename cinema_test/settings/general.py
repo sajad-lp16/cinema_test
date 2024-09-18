@@ -82,6 +82,8 @@ USE_I18N = True
 USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+AUTH_USER_MODEL = "account.User"
+
 # --------------------------------------------- MEDIA & STATIC ---------------------------------------------------------
 STATIC_URL = "/static/"
 STATIC_ROOT = "staticfiles/"
