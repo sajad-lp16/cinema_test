@@ -11,7 +11,7 @@ class UserManager(BaseUserManager):
         if not mobile:
             raise ValueError("Mobile field is required")
 
-        normalize_mobile(mobile)
+        mobile = normalize_mobile(mobile)
 
         user_already_exist = self.model.objects.filter(mobile=mobile).exists()
         if user_already_exist:
