@@ -3,7 +3,8 @@ from django.contrib import admin
 from core_apps.venue.models import (
     Stadium,
     Seat,
-    Match
+    Match,
+    Ticket
 )
 
 
@@ -19,4 +20,9 @@ class SeatAdmin(admin.ModelAdmin):
 
 @admin.register(Match)
 class MatchAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Ticket)
+class TicketAdmin(admin.ModelAdmin):
     pass

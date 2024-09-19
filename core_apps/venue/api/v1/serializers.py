@@ -4,7 +4,8 @@ from rest_framework.serializers import ModelSerializer
 from core_apps.venue.models import (
     Stadium,
     Seat,
-    Match
+    Match,
+    Ticket
 )
 
 
@@ -39,4 +40,18 @@ class MatchSerializer(ModelSerializer):
             "normal_price",
             "start_time",
             "end_time",
+        )
+
+
+class TicketSerializer(ModelSerializer):
+    match = MatchSerializer()
+
+    class Meta:
+        model = Ticket
+        fields = (
+            "id",
+            "price",
+            "match",
+            "seat",
+            "is_vip"
         )
