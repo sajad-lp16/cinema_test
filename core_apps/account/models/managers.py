@@ -3,16 +3,17 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.base_user import BaseUserManager
 
+from core_apps.account.utils.functions import normalize_mobile
+
 
 class UserManager(BaseUserManager):
     def _create_user(self, mobile: str, password: str, **extra_fields):
         if not mobile:
             raise ValueError("Mobile field is required")
 
-        if mobile.startswith("+98"):
-            mobile = "0" + mobile[3:]
+        normalize_mobile(mobile)
 
-        user_already_exist = self.model.objects.filter(mobile=mobile)
+        user_already_exist = self.model.objects.filter(mobile=mobile).exists()
         if user_already_exist:
             raise ValidationError("User with such mobile already exists.")
 

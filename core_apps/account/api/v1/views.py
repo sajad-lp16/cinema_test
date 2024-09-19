@@ -9,9 +9,13 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView
+)
 
 from core_apps.account.api.v1.serializers import UserSerializer
-
+from core_apps.account.utils.functions import normalize_mobile
 
 User = get_user_model()
 
@@ -27,8 +31,27 @@ class UserRegisterAPIView(generics.CreateAPIView):
         user = serializer.save()
         refresh = RefreshToken.for_user(user)
         headers = self.get_success_headers(serializer.data)
+
         response_data = {
             "access": str(refresh.access_token),
             "refresh": str(refresh)
         }
+
         return Response(response_data, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class LoginAPIView(TokenObtainPairView):
+    permission_classes = AllowAny,
+
+    def post(self, request: Request, *args, **kwargs) -> Response:
+        """Override to make login accept both `+98` & `09` formats"""
+        data = request.data
+
+        if mobile := data.get("mobile"):
+            request.data["mobile"] = normalize_mobile(mobile)
+
+        return super().post(request, *args, **kwargs)
+
+
+class RefreshAPIView(TokenRefreshView):
+    permission_classes = AllowAny,

@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
     def validate_password(self, value):
-        repeat = self.data.get("password_repeat")
+        repeat = self.initial_data.get("password_repeat")
         if value != repeat:
             raise serializers.ValidationError("Passwords do not match.")
         validate_password(value)
