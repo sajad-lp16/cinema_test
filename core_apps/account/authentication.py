@@ -11,7 +11,8 @@ class AuthBackend(ModelBackend):
     """makes auth mechanism accept both `+98`, `09` mobile formats"""
 
     def authenticate(self, request: Request, username=None, password=None, **kwargs) -> User | None:
-        mobile = normalize_mobile(username)
+        mobile = username or kwargs.get("mobile")
+        mobile = normalize_mobile(mobile)
         try:
             user = User.objects.get(mobile=mobile)
         except User.DoesNotExist:

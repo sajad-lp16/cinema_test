@@ -1,5 +1,7 @@
 from django.db import models
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from rest_framework.exceptions import ValidationError
 
 from core_apps.common.models import BaseTimeStampedModel
 from core_apps.venue.models.managers import (
@@ -11,8 +13,9 @@ from core_apps.venue.models.managers import (
 
 class Stadium(BaseTimeStampedModel):
     title = models.CharField(
-        verbose_name=_('title'),
-        max_length=255
+        verbose_name=_("title"),
+        max_length=255,
+        unique=True
     )
     is_active = models.BooleanField(
         verbose_name=_("is active"),
@@ -48,7 +51,6 @@ class Seat(BaseTimeStampedModel):
     )
     number = models.PositiveIntegerField(
         verbose_name=_("number"),
-        unique=True,
     )
     is_active = models.BooleanField(
         verbose_name=_("is active"),
@@ -65,6 +67,9 @@ class Seat(BaseTimeStampedModel):
     class Meta:
         verbose_name = _("Seat")
         verbose_name_plural = _("Seats")
+        constraints = [
+            models.UniqueConstraint(fields=["stadium_id", "number"], name="stadium_number_unique")
+        ]
 
     def __str__(self):
         if not self.is_vip:
@@ -105,6 +110,22 @@ class Match(BaseTimeStampedModel):
 
     objects = models.Manager()
     enable_objects = MatchManager()
+
+    def check_time_collision(self):
+        has_collision = Match.enable_objects.exclude(id=self.id).filter(
+            Q(start_time__gte=self.start_time, start_time__lte=self.end_time) |
+            Q(end_time__gte=self.start_time, end_time__lte=self.end_time)
+        ).exists()
+
+        if has_collision:
+            raise ValidationError({
+                "code": "time_collision",
+                "detail": _("match times have collision with others")
+            })
+
+    def save(self, *args, **kwargs):
+        self.check_time_collision()
+        return super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Match")
