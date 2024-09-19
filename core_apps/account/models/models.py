@@ -41,7 +41,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseTimeStampedModel):
         verbose_name_plural = _("users")
 
     def get_info(self):
-        return self.first_name
+        return self.mobile
 
     def __str__(self):
         return self.mobile
