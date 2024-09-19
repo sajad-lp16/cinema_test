@@ -7,3 +7,6 @@ class VenueConfig(AppConfig):
 
     verbose_name = "Venue"
     verbose_name_plural = "Venues"
+
+    def ready(self):
+        from core_apps.venue import signals
