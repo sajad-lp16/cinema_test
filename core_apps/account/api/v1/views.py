@@ -14,8 +14,14 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView
 )
 
-from core_apps.account.api.v1.serializers import UserSerializer
+from drf_yasg.utils import swagger_auto_schema
+
 from core_apps.account.utils.functions import normalize_mobile
+from core_apps.account.api.v1.serializers import UserSerializer
+from core_apps.account.api.v1.swagger_schema import (
+    LOGIN_API_SCHEMA,
+    REGISTER_API_SCHEMA
+)
 
 User = get_user_model()
 
@@ -23,7 +29,11 @@ User = get_user_model()
 class UserRegisterAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = AllowAny,
+    permission_classes = [AllowAny]
+
+    @swagger_auto_schema(responses=REGISTER_API_SCHEMA)
+    def post(self, request: Request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
 
     def create(self, request: Request, *args, **kwargs) -> Response:
         serializer = self.get_serializer(data=request.data)
@@ -41,8 +51,9 @@ class UserRegisterAPIView(generics.CreateAPIView):
 
 
 class LoginAPIView(TokenObtainPairView):
-    permission_classes = AllowAny,
+    permission_classes = [AllowAny]
 
+    @swagger_auto_schema(responses=LOGIN_API_SCHEMA)
     def post(self, request: Request, *args, **kwargs) -> Response:
         """Override to make login accept both `+98` & `09` formats"""
         data = request.data
@@ -54,4 +65,4 @@ class LoginAPIView(TokenObtainPairView):
 
 
 class RefreshAPIView(TokenRefreshView):
-    permission_classes = AllowAny,
+    permission_classes = [AllowAny]
