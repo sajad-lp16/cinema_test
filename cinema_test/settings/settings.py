@@ -1,4 +1,4 @@
-"""It's better to create settings for each host [local, dev, production]"""
+"""It"s better to create settings for each host [local, dev, production]"""
 
 from datetime import timedelta
 
@@ -25,3 +25,8 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
 }
+
+AUTHENTICATION_BACKENDS = [
+    "core_apps.account.authentication.AuthBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
