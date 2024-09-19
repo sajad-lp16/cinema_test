@@ -22,8 +22,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_yasg",
+    "rest_framework_simplejwt",
 ]
-
 LOCAL_APPS = [
     "core_apps.account.apps.AccountConfig",
     "core_apps.payment.apps.PaymentConfig",
@@ -88,5 +88,5 @@ AUTH_USER_MODEL = "account.User"
 STATIC_URL = "/static/"
 STATIC_ROOT = "staticfiles/"
 
-STATIC_URL = "/media/"
-STATIC_URL = "mediafiles/"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "mediafiles/"
