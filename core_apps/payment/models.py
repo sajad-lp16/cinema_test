@@ -53,3 +53,11 @@ class Transaction(BaseTimeStampedModel):
 
     def __repr__(self):
         return f"Transaction(id={self.id}, user_id={self.user_id}, status={self.get_status_display()})"
+
+    def set_failed(self):
+        self.status = self.StatusOptions.FAILED
+        self.save(update_fields=["status"])
+
+    def set_succeed(self):
+        self.status = self.StatusOptions.SUCCESSFUL
+        self.save(update_fields=["status"])

@@ -218,3 +218,8 @@ class Ticket(BaseTimeStampedModel):
 
     def __repr__(self):
         return f"Ticket(id={self.id}, match_title={self.match.title}, user={self.user_id})"
+
+    def set_owner(self, user_id: int):
+        self.user_id = user_id
+        self.status = self.StatusOptions.SOLD
+        self.save(update_fields=["status", "user"])

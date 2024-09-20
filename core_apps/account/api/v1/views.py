@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth import get_user_model
 
 from rest_framework import (
@@ -24,9 +26,11 @@ from core_apps.account.api.v1.swagger_schema import (
 )
 
 User = get_user_model()
+Logger = logging.getLogger("account")
 
 
 class UserRegisterAPIView(generics.CreateAPIView):
+    """Better to be 2Step register, no verification implemented to simplify the scenario"""
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
@@ -46,6 +50,8 @@ class UserRegisterAPIView(generics.CreateAPIView):
             "access": str(refresh.access_token),
             "refresh": str(refresh)
         }
+        # in serious scenario this logger should be decorator and contain more data, like user_ip etc...
+        Logger.info(f"RegisterLog UserINFO={serializer.data}")
 
         return Response(response_data, status=status.HTTP_201_CREATED, headers=headers)
 
@@ -61,6 +67,8 @@ class LoginAPIView(TokenObtainPairView):
         if mobile := data.get("mobile"):
             request.data["mobile"] = normalize_mobile(mobile)
 
+        # in serious scenario this logger should be decorator and contain more data, like user_ip etc...
+        Logger.info(f"LoginAttempt UserINFO={data}")
         return super().post(request, *args, **kwargs)
 
 

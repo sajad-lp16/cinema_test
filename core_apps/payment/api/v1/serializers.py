@@ -40,12 +40,15 @@ class PaymentSerializer(serializers.ModelSerializer):
             request = self.context.get("request")
             ticket = self.validated_data.get("ticket")
 
-            instance: Transaction = super().save(user=request.user, price=ticket.price, **kwargs)
+            self.validated_data["user"] = request.user
+            self.validated_data["price"] = ticket.price
+            instance: Transaction = super().save(**kwargs)
+
             ticket.lock_ticket()
 
             gateway_name = self.validated_data.get("gateway")
             gateway_manager: BasePaymentGateway = get_gateway_by_name(gateway_name)
-            payload = {"user_id": request.user.id, "transaction_id": instance.id}
+            payload = {"user_id": request.user.id, "transaction_id": instance.id, "ticket_id": ticket.id}
             is_ok = gateway_manager.perform_payment(price=instance.price, payload=payload)
 
             if not is_ok:
