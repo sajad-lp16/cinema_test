@@ -28,7 +28,7 @@ def create_seats_for_stadium(sender, instance: Stadium, created: bool, **kwargs)
 
 
 @receiver(post_save, sender=Match)
-def create_seats_for_stadium(sender, instance: Match, created: bool, **kwargs):
+def generate_tickets_for_match(sender, instance: Match, created: bool, **kwargs):
     """creates tickets for `is_active` seats for specified for a match"""
     if created:
         vip_seats = Seat.enable_objects.get_vip_seats().filter(
@@ -47,3 +47,13 @@ def create_seats_for_stadium(sender, instance: Match, created: bool, **kwargs):
         ]
 
         Ticket.objects.bulk_create(vip_tickets + normal_tickets)
+
+
+@receiver(post_save, sender=Match)
+def revoke_tickets(sender, instance: Match, created: bool, **kwargs):
+    """revoke all match tickets if match is canceled"""
+    if not created and not instance.is_active:
+        instance.tickets.update(
+            status=Ticket.StatusOptions.REVOKED
+        )
+    # Should Refund the tickets price to the user :)
