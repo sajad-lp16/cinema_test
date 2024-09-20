@@ -20,31 +20,31 @@ from core_apps.venue.api.v1.serializers import (
 
 
 class StadiumListCreateAPIView(generics.ListCreateAPIView):
+    serializer_class = StadiumSerializer
     pagination_class = StadiumPagination
     queryset = Stadium.enable_objects.all()
     permission_classes = [IsAdminUserOrReadOnly]
-    serializer_class = StadiumSerializer
 
 
 class StadiumDetailAPIView(generics.RetrieveAPIView):
+    serializer_class = StadiumSerializer
     queryset = Stadium.enable_objects.all()
     lookup_field = "id"
     permission_classes = [AllowAny]
-    serializer_class = StadiumSerializer
 
 
 class MatchListCreateAPIView(generics.ListCreateAPIView):
+    serializer_class = MatchSerializer
     pagination_class = MatchPagination
     queryset = Match.enable_objects.all()
     permission_classes = [IsAdminUserOrReadOnly]
-    serializer_class = MatchSerializer
 
 
 class MatchDetailAPIView(generics.RetrieveAPIView):
+    serializer_class = MatchSerializer
     queryset = Match.enable_objects.all()
     lookup_field = "id"
     permission_classes = [AllowAny]
-    serializer_class = MatchSerializer
 
 
 class TicketList(generics.ListAPIView):

@@ -222,4 +222,4 @@ class Ticket(BaseTimeStampedModel):
     def set_owner(self, user_id: int):
         self.user_id = user_id
         self.status = self.StatusOptions.SOLD
-        self.save(update_fields=["status", "user"])
+        self.save(update_fields=["status", "user_id"])

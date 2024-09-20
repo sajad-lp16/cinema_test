@@ -1,4 +1,3 @@
-from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 from core_apps.venue.models import (
@@ -34,10 +33,9 @@ class MatchSerializer(ModelSerializer):
     class Meta:
         model = Match
         fields = (
+            "id",
             "title",
             "stadium",
-            "vip_price",
-            "normal_price",
             "start_time",
             "end_time",
         )
