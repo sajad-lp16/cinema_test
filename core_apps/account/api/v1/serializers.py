@@ -3,7 +3,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
 
 from rest_framework import serializers
-from rest_framework_simplejwt.tokens import RefreshToken
 
 User = get_user_model()
 
@@ -31,8 +30,12 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         validated_data.pop("password_repeat")
-        user = User.objects.create_user(**validated_data)
+        try:
+            user = User.objects.create_user(**validated_data)
+        except ValidationError:
+            raise serializers.ValidationError({"mobile": "User this mobile already exists."})
         return user
+
 
 class TokenSerializer(serializers.Serializer):
     access = serializers.CharField()
