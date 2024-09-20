@@ -1,0 +1,1712 @@
+{
+	"info": {
+		"_postman_id": "78db4325-e65e-4c2b-b20a-d3a17ef6e1ad",
+		"name": "CinemaTicket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16506940",
+		"_collection_link": "https://red-equinox-179368.postman.co/workspace/Develop~743b787b-d061-486c-8a9f-a139d240ab9a/collection/16506940-78db4325-e65e-4c2b-b20a-d3a17ef6e1ad?action=share&source=collection_link&creator=16506940"
+	},
+	"item": [
+		{
+			"name": "venue",
+			"item": [
+				{
+					"name": "match_create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"stadium\": 7,\n  \"vip_price\": 200,\n  \"normal_price\": 300,\n  \"start_time\": \"2023-09-19T13:14:42.314Z\",\n  \"end_time\": \"2023-09-19T13:14:42.314Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/venue/api/v1/match/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"venue",
+								"api",
+								"v1",
+								"match",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "match_create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"string\",\n  \"stadium\": 7,\n  \"vip_price\": 200,\n  \"normal_price\": 300,\n  \"start_time\": \"2023-09-19T13:14:42.314Z\",\n  \"end_time\": \"2023-09-19T13:14:42.314Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/venue/api/v1/match/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"venue",
+										"api",
+										"v1",
+										"match",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:00:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"IRAN VS USA\",\n    \"stadium\": 7,\n    \"vip_price\": 200,\n    \"normal_price\": 300,\n    \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n    \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n}"
+						}
+					]
+				},
+				{
+					"name": "match_create_time_collision",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"IRAN VS USA\",\n  \"stadium\": 7,\n  \"vip_price\": 2000,\n  \"normal_price\": 1000,\n  \"start_time\": \"2024-09-19T13:14:42.314Z\",\n  \"end_time\": \"2024-09-19T13:14:42.314Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/venue/api/v1/match/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"venue",
+								"api",
+								"v1",
+								"match",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "match_create_time_collision",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzUzMjgyLCJpYXQiOjE3MjY3NTI5ODIsImp0aSI6Ijg4NzI5YTczMzcyMjQ4MzNhMGRiMGRlM2M5NmYzODc0IiwidXNlcl9pZCI6MX0.EhdRfpVvkx02N1B_UoVQk6UuhFDh2nTOxsptE6ZpNTo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"string\",\n  \"stadium\": 1,\n  \"vip_price\": 200,\n  \"normal_price\": 300,\n  \"start_time\": \"2024-09-19T13:14:42.314Z\",\n  \"end_time\": \"2024-09-19T13:14:42.314Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/venue/api/v1/stadium/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"venue",
+										"api",
+										"v1",
+										"stadium",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 10:58:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"time_collision\",\n    \"detail\": \"match times have collision with others\"\n}"
+						}
+					]
+				},
+				{
+					"name": "stadium_create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Azadi\",\n    \"vip_seats\": 100,\n    \"normal_seats\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/venue/api/v1/stadium/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"venue",
+								"api",
+								"v1",
+								"stadium",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "stadium_create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Azadi\",\n    \"vip_seats\": 100,\n    \"normal_seats\": 200\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/venue/api/v1/stadium/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"venue",
+										"api",
+										"v1",
+										"stadium",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 10:57:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"title\": \"Azadi\",\n    \"vip_seats\": 100,\n    \"normal_seats\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "stadium_list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzUzMjgyLCJpYXQiOjE3MjY3NTI5ODIsImp0aSI6Ijg4NzI5YTczMzcyMjQ4MzNhMGRiMGRlM2M5NmYzODc0IiwidXNlcl9pZCI6MX0.EhdRfpVvkx02N1B_UoVQk6UuhFDh2nTOxsptE6ZpNTo",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"stadium\": 1,\n  \"vip_price\": 200,\n  \"normal_price\": 300,\n  \"start_time\": \"2024-09-19T13:14:42.314Z\",\n  \"end_time\": \"2024-09-19T13:14:42.314Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/venue/api/v1/stadium/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"venue",
+								"api",
+								"v1",
+								"stadium",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "stadium_list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzUzMjgyLCJpYXQiOjE3MjY3NTI5ODIsImp0aSI6Ijg4NzI5YTczMzcyMjQ4MzNhMGRiMGRlM2M5NmYzODc0IiwidXNlcl9pZCI6MX0.EhdRfpVvkx02N1B_UoVQk6UuhFDh2nTOxsptE6ZpNTo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"string\",\n  \"stadium\": 1,\n  \"vip_price\": 200,\n  \"normal_price\": 300,\n  \"start_time\": \"2024-09-19T13:14:42.314Z\",\n  \"end_time\": \"2024-09-19T13:14:42.314Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/venue/api/v1/stadium/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"venue",
+										"api",
+										"v1",
+										"stadium",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 10:57:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 6,\n            \"title\": \"Ghadir\",\n            \"vip_seats\": 10,\n            \"normal_seats\": 20\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Azadi\",\n            \"vip_seats\": 100,\n            \"normal_seats\": 200\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "match_list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/venue/api/v1/match/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"venue",
+								"api",
+								"v1",
+								"match",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "match_list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA5NTg1LCJpYXQiOjE3MjY4Mjk1ODUsImp0aSI6IjM4OTE4NGQzYzJlMTRiYjBhYTBhZDgxMDZhNTk2MWQ2IiwidXNlcl9pZCI6MX0.yl_btO5YNapfAKYKe6HuybO-Um_VPqUrmXjLh_0kAEI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/venue/api/v1/match/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"venue",
+										"api",
+										"v1",
+										"match",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:07:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "439"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 3,\n            \"title\": \"string\",\n            \"stadium\": 6,\n            \"start_time\": \"2024-09-19T16:44:42.314000+03:30\",\n            \"end_time\": \"2024-09-19T16:44:42.314000+03:30\"\n        },\n        {\n            \"id\": 5,\n            \"title\": \"IR VS KSA\",\n            \"stadium\": 6,\n            \"start_time\": \"2024-09-19T22:33:21+03:30\",\n            \"end_time\": \"2024-09-19T22:33:22+03:30\"\n        },\n        {\n            \"id\": 6,\n            \"title\": \"IR VS USA\",\n            \"stadium\": 7,\n            \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n            \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "ticket_list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/venue/api/v1/match/6/ticket-list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"venue",
+								"api",
+								"v1",
+								"match",
+								"6",
+								"ticket-list",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ticket_list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/venue/api/v1/match/6/ticket-list/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"venue",
+										"api",
+										"v1",
+										"match",
+										"6",
+										"ticket-list",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:08:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2013"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 300,\n    \"next\": \"http://127.0.0.1:8000/venue/api/v1/match/6/ticket-list/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 31,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 381,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 32,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 382,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 33,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 383,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 34,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 384,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 35,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 385,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 36,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 386,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 37,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 387,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 38,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 388,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 39,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 389,\n            \"is_vip\": true\n        },\n        {\n            \"id\": 40,\n            \"price\": 200,\n            \"match\": {\n                \"id\": 6,\n                \"title\": \"IR VS USA\",\n                \"stadium\": 7,\n                \"start_time\": \"2023-09-19T16:44:42.314000+03:30\",\n                \"end_time\": \"2023-09-19T16:44:42.314000+03:30\"\n            },\n            \"seat\": 390,\n            \"is_vip\": true\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile\": \"+989302658144\",\n    \"password\": \"123456Aa@#\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/account/api/v1/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"api",
+								"v1",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"+989302658144\",\n    \"password\": \"123456Aa@#\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/account/api/v1/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"account",
+										"api",
+										"v1",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 19 Sep 2024 21:45:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyNjg2ODczMSwiaWF0IjoxNzI2NzgyMzMxLCJqdGkiOiJkMzIyMzMyODU5MjQ0NzU2OThjZTczYWI2YTc2ZWNlNyIsInVzZXJfaWQiOjF9.XgUL74UtNuhvGG_Kvrh14gSCAnKqQe9NApIb6oh9o7Y\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2ODAwMzMxLCJpYXQiOjE3MjY3ODIzMzEsImp0aSI6ImI4OTQ4ZDNhZTBjZTQwZDBhM2FhYTRlYTYwZTlkYTc4IiwidXNlcl9pZCI6MX0.at4Y7rYU2tBL95vRV2AHj3bTkb6X6akk1TcvAeZnZh8\"\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile\": \"+989910522508\",\n    \"password\": \"123456Aa@#\",\n    \"password_repeat\": \"123456Aa@#\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/account/api/v1/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"api",
+								"v1",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"+989910522508\",\n    \"password\": \"123456Aa@#\",\n    \"password_repeat\": \"123456Aa@#\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/account/api/v1/register/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"account",
+										"api",
+										"v1",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:03:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDEwMTk1LCJpYXQiOjE3MjY4MzAxOTUsImp0aSI6IjM2NjEwZDQzMjlhZDRlYjVhODIwODllYWZjYmFkYzMxIiwidXNlcl9pZCI6M30.mssaR26q2IRz7DRqajy1DS85BEjIaY11b1Rs7Z9fI-s\",\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyNjkxNjU5NSwiaWF0IjoxNzI2ODMwMTk1LCJqdGkiOiIxZWQ3YTNhNzQ1OTA0MWY1ODA1OWMzM2M5ZWRlYmI1NCIsInVzZXJfaWQiOjN9.1zOEb86xZM1q_wxNYTRovlKV6sVu0kCBwRO5ZwKkvn4\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "buy-ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticket\": 31,\n    \"gateway\": \"imaginary\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/payment/api/v1/buy-ticket/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"payment",
+								"api",
+								"v1",
+								"buy-ticket",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "buy-ticket",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ticket\": 31,\n    \"gateway\": \"imaginary\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/payment/api/v1/buy-ticket/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"payment",
+										"api",
+										"v1",
+										"buy-ticket",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:09:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"user\": {\n        \"id\": 1,\n        \"mobile\": \"09302658144\"\n    },\n    \"price\": 200,\n    \"status\": \"Pending\",\n    \"ticket\": 31,\n    \"gateway\": \"imaginary\"\n}"
+						}
+					]
+				},
+				{
+					"name": "buy-ticket LOCKED_Ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticket\": 31,\n    \"gateway\": \"imaginary\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/payment/api/v1/buy-ticket/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"payment",
+								"api",
+								"v1",
+								"buy-ticket",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "buy-ticket LOCKED_Ticket",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ticket\": 31,\n    \"gateway\": \"imaginary\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/payment/api/v1/buy-ticket/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"payment",
+										"api",
+										"v1",
+										"buy-ticket",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:09:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ticket\": [\n        \"ticket is not sellable\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "gateways-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/payment/api/v1/gateways-list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"payment",
+								"api",
+								"v1",
+								"gateways-list",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "gateways-list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/payment/api/v1/gateways-list/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"payment",
+										"api",
+										"v1",
+										"gateways-list",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 19 Sep 2024 17:07:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"gateways\": [\n        \"imaginary\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "purchase-detail [PENDING]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/payment/api/v1/purchase-detail/15/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"payment",
+								"api",
+								"v1",
+								"purchase-detail",
+								"15",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "purchase-detail [PENDING]",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/payment/api/v1/purchase-detail/15/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"payment",
+										"api",
+										"v1",
+										"purchase-detail",
+										"15",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:11:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"user\": {\n        \"id\": 1,\n        \"mobile\": \"09302658144\"\n    },\n    \"price\": 200,\n    \"status\": \"Pending\",\n    \"ticket\": 31,\n    \"gateway\": \"imaginary\"\n}"
+						}
+					]
+				},
+				{
+					"name": "purchase-detail [SUCCEED]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/payment/api/v1/purchase-detail/15/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"payment",
+								"api",
+								"v1",
+								"purchase-detail",
+								"15",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "purchase-detail [SUCCEED]",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MDA3NDI1LCJpYXQiOjE3MjY4Mjc0MjUsImp0aSI6ImVkNzlmN2ZhYzM4MTQyOTk5ZjJlNDY0OTk5NmM3M2Y0IiwidXNlcl9pZCI6MX0.GfQweRmmjV4YuNi1-IMSmAPb13bYDbevT5rFwyHWZiw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/payment/api/v1/purchase-detail/12/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"payment",
+										"api",
+										"v1",
+										"purchase-detail",
+										"12",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:29:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "117"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 12,\n    \"user\": {\n        \"id\": 1,\n        \"mobile\": \"09302658144\"\n    },\n    \"price\": 20000,\n    \"status\": \"Successful\",\n    \"ticket\": 2,\n    \"gateway\": \"imaginary\"\n}"
+						}
+					]
+				},
+				{
+					"name": "gateway-callback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"transaction_id\": 12,\n    \"ticket_id\": 31,\n    \"status\": \"success\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/payment/api/v1/purchase-callback/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"payment",
+								"api",
+								"v1",
+								"purchase-callback",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "gateway-callback",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"transaction_id\": 12,\n    \"ticket_id\": 31,\n    \"status\": \"success\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/payment/api/v1/purchase-callback/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"payment",
+										"api",
+										"v1",
+										"purchase-callback",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 20 Sep 2024 11:27:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
