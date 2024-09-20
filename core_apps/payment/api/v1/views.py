@@ -51,6 +51,7 @@ class GatewayCallbackAPIView(APIView):
     as the user pays successfully the gateway hook will call this api,
     many security stuff like gateway auth_token are not implemented here.
     """
+    permission_classes = [AllowAny]  # This is WRONG and MUST authenticate the BANK!!!!
 
     def post(self, request, *args, **kwargs):
         data = request.data
@@ -83,7 +84,7 @@ class GatewayCallbackAPIView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         try:
-            ticket = Ticket.objects.get(id=transaction_id)
+            ticket = Ticket.objects.get(id=ticket_id)
         except Ticket.DoesNotExist:
             transaction.set_failed()
             Logger.warning(f"BankGateway Callback [Ticket 404] TransactionInfo={data}")

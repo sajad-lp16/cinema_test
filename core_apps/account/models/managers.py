@@ -1,4 +1,3 @@
-from django.db.models import Manager
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.base_user import BaseUserManager

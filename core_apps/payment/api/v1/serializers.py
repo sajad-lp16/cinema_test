@@ -49,7 +49,7 @@ class PaymentSerializer(serializers.ModelSerializer):
             gateway_name = self.validated_data.get("gateway")
             gateway_manager: BasePaymentGateway = get_gateway_by_name(gateway_name)
             payload = {"user_id": request.user.id, "transaction_id": instance.id, "ticket_id": ticket.id}
-            is_ok = gateway_manager.perform_payment(price=instance.price, payload=payload)
+            is_ok = gateway_manager.perform_payment(price=instance.price, payload=payload, callback="http://me.test")
 
             if not is_ok:
                 raise serializers.ValidationError("Payment failed")

@@ -24,5 +24,5 @@ class BasePaymentGateway(ABC):
         return instance
 
     @abstractmethod
-    def perform_payment(self, price: int, payload: dict) -> bool:
+    def perform_payment(self, price: int, payload: dict, callback: str) -> bool:
         pass
