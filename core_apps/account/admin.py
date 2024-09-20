@@ -6,4 +6,5 @@ User = get_user_model()
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["mobile", "is_staff", "is_superuser", "is_active"]
+    search_fields = ["id", "mobile"]
